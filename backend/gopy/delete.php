@@ -5,8 +5,8 @@ include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Chuẩn bị câu truy vấn $sql
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
-$nsx_ma = $_GET['cdgy_ma'];
-$sql = "DELETE FROM `gopy` WHERE cdgy_ma=" . $cdgy_ma;
+$gy_ma = $_GET['gy_ma'];
+$sql = "DELETE FROM `gopy` WHERE gy_ma=" . $gy_ma;
 
 // 3. Thực thi câu lệnh DELETE
 $result = mysqli_query($conn, $sql);

@@ -14,7 +14,7 @@ if(isset($_POST['btnCapNhat']))
     $nsx_ten = $_POST['nsx_ten'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `loaisanpham` (nsx_ten, nsx_ten)
+    $sql = "INSERT INTO `nhasanxuat` (nsx_ma, nsx_ten)
             VALUES ('" . $nsx_ten . "', '". $nsx_ma ."');";
 
     // Thực thi INSERT

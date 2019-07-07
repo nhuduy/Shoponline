@@ -17,15 +17,44 @@ Thêm mới Góp ý
 {% block content %}
 <form name="frmGopY" id="frmGopY" method="post" action="/shoponline/backend/gopy/create.php">
     <div class="form-group">
-        <label for="cdgy_ma">Mã Góp ý</label>
-        <input type="text" class="form-control" id="cdgy_ma" name="cdgy_ma" placeholder="Mã Góp ý" readonly>
-        <small id="cdgy_maHelp" class="form-text text-muted">Mã Góp ý không được hiệu chỉnh.</small>
+        <label for="gy_ma">Mã Góp ý</label>
+        <input type="text" class="form-control" id="gy_ma" name="gy_ma" placeholder="Mã Góp ý" readonly>
+        <small id="gy_maHelp" class="form-text text-muted">Mã Góp ý không được hiệu chỉnh.</small>
     </div>
     <div class="form-group">
-        <label for="cdgy_ten">Tên chủ đề Góp ý</label>
-        <input type="text" class="form-control" id="cdgy_ten" name="cdgy_ten" placeholder="Tên chủ đề Góp ý">
+        <label for="gy_hoten">Họ tên người Góp ý</label>
+        <input type="text" class="form-control" id="gy_hoten" name="gy_hoten" placeholder="Họ tên người Góp ý">
+    </div>
+    <div class="form-group">
+        <label for="gy_email">Email</label>
+        <input type="text" class="form-control" id="gy_email" name="gy_email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="gy_diachi">Địa chỉ</label>
+        <input type="text" class="form-control" id="gy_diachi" name="gy_diachi" placeholder="Địa chỉ">
+    </div>
+    <div class="form-group">
+        <label for="gy_dienthoai">Điện thoại liên hệ</label>
+        <input type="text" class="form-control" id="gy_dienthoai" name="gy_dienthoai" placeholder="Điện thoại liên hệ">
+    </div>
+    <div class="form-group">
+        <label for="cdgy_ma">Chủ đề góp ý</label>
+        <input type="text" class="form-control" id="cdgy_ma" name="cdgy_ma" placeholder="Chủ đề góp ý">
+    </div>
+    <div class="form-group">
+        <label for="gy_tieude">Tiêu đề</label>
+        <input type="text" class="form-control" id="gy_tieude" name="gy_tieude" placeholder="Tiêu đề">
+    </div>
+    <div class="form-group">
+        <label for="gy_noidung">Nội dung</label>
+        <input type="text" class="form-control" id="gy_noidung" name="gy_noidung" placeholder="Nội dung">
+    </div>
+    <div class="form-group">
+        <label for="gy_ngaygop">Ngày góp</label>
+        <input type="text" class="form-control" id="gy_ngaygop" name="gy_ngaygop" placeholder="Ngày góp">
     </div>
     <button class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+    <hr>
 </form>
 {% endblock %}
 {# End Nội dung trong block content #}

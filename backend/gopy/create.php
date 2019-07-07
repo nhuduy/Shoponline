@@ -10,12 +10,23 @@ include_once(__DIR__.'/../../dbconnect.php');
 if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
+    $gy_ma = $_POST['gy_ma'];
+    $gy_hoten = $_POST['gy_hoten'];
+    $gy_email = $_POST['gy_email'];
+    $gy_diachi = $_POST['gy_diachi'];
+    $gy_dienthoai = $_POST['gy_dienthoai'];
     $cdgy_ma = $_POST['cdgy_ma'];
-    $cdgy_ten = $_POST['cdgy_ten'];
+    $gy_tieude = $_POST['gy_tieude'];
+    $gy_noidung = $_POST['gy_noidung'];
+    $gy_ngaygop = $_POST['gy_ngaygop'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `loaisanpham` (cdgy_ma, cdgy_ten)
-            VALUES ('" . $cdgy_ma . "', '". $cdgy_ten ."');";
+    $sql = "INSERT INTO `gopy` (gy_ma, gy_hoten, gy_email, 
+                                gy_diachi, gy_dienthoai, cdgy_ma, 
+                                gy_tieude, gy_noidung, gy_ngaygop)
+            VALUES ('" . $gy_ma . "', '". $gy_hoten ."', '". $gy_email ."', 
+                    '". $gy_diachi ."', '". $gy_dienthoai ."', '". $cdgy_ma ."', 
+                    '". $gy_tieude ."', '". $gy_noidung ."' ,'". $gy_ngaygop ."');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);

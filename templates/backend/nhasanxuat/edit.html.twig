@@ -17,15 +17,16 @@ Sửa Nhà sản xuất
 {% block content %}
 <form name="frmNhaSanXuat" id="frmNhaSanXuat" method="post" action="/shoponline/backend/nhasanxuat/edit.php?nsx_ma={{ nhasanxuat.nsx_ma }}">
     <div class="form-group">
-        <label for="lsp_ma">Mã nhà sản xuất</label>
+        <label for="nsx_ma">Mã nhà sản xuất</label>
         <input type="text" class="form-control" id="nsx_ma" name="nsx_ma" placeholder="Mã nhà sản xuất" readonly value="{{ nhasanxuat.nsx_ma }}">
-        <small id="lsp_maHelp" class="form-text text-muted">Mã nhà sản xuất không được hiệu chỉnh.</small>
+        <small id="nsx_maHelp" class="form-text text-muted">Mã nhà sản xuất không được hiệu chỉnh.</small>
     </div>
     <div class="form-group">
-        <label for="lsp_ten">Tên nhà sản xuất</label>
+        <label for="nsx_ten">Tên nhà sản xuất</label>
         <input type="text" class="form-control" id="nsx_ten" name="nsx_ten" placeholder="Tên nhà sản xuất" value="{{ nhasanxuat.nsx_ten }}">
     </div>
     <button class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+    <hr>
 </form>
 {% endblock %}
 {# End Nội dung trong block content #}

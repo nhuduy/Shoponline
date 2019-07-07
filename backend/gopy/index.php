@@ -9,6 +9,7 @@ include_once(__DIR__.'/../../dbconnect.php');
 // 2. Chuẩn bị câu truy vấn $sql
 $stt=1;
 $sql = "select * from `gopy`";
+// $sql1 = "select * from `chudegopy`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sql);
@@ -20,15 +21,15 @@ $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     $data[] = array(
-        'gopy_ma' => $row['lsp_ma'],
-        'gopy_hoten' => $row['gopy_hoten'],
-        // 'gopy_email' => $row['gopy_email'],
-        // 'gopy_diachi' => $row['gopy_diachi'],
-        // 'gopy_dienthoai' => $row['gopy_dienthoai'],
-        // 'gopy_tieude' => $row['gopy_tieude'],
-        // 'gopy_noidung' => $row['gopy_noidung'],
-        // 'gopy_ngaygop' => $row['gopy_ngaygop'],
-        // 'gopy_chudegopy' => $row['gopy_chudegopy'],
+        'gy_ma' => $row['gy_ma'],
+        'gy_hoten' => $row['gy_hoten'],
+        'gy_email' => $row['gy_email'],
+        'gy_diachi' => $row['gy_diachi'],
+        'gy_dienthoai' => $row['gy_dienthoai'],
+        'cdgy_ma' => $row['cdgy_ma'],
+        'gy_tieude' => $row['gy_tieude'],
+        'gy_noidung' => $row['gy_noidung'],
+        'gy_ngaygop' => $row['gy_ngaygop'],
     );
 }
 

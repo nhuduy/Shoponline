@@ -27,21 +27,29 @@ Danh sách chủ đề góp ý
             <th>Email</th>
             <th>Địa chỉ</th>
             <th>Điện thoại</th>
+            <th>Chủ đề góp ý</th>
             <th>Tiêu đề</th>
             <th>Nội dung</th>
             <th>Ngày góp</th>
-            <th>Chủ đề góp ý</th>
+            
         </tr>
     </thead>
     <tbody>
         {% for gopy in ds_gopy %}
         <tr>
+            <td>{{ gopy.gy_ma }}</td>
+            <td>{{ gopy.gy_hoten }}</td>
+            <td>{{ gopy.gy_email }}</td>
+            <td>{{ gopy.gy_diachi }}</td>
+            <td>{{ gopy.gy_dienthoai }}</td>
             <td>{{ gopy.cdgy_ma }}</td>
-            <td>{{ gopy.cdgy_ten }}</td>
+            <td>{{ gopy.gy_tieude }}</td>
+            <td>{{ gopy.gy_noidung }}</td>
+            <td>{{ gopy.gy_ngaygop }}</td>
             
             <td>
                 <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `cdgy_ma` -->
-                <a href="edit.php?cdgy_ma={{ gopy.cdgy_ma }}" class="btn btn-warning">
+                <a href="edit.php?gy_ma={{ gopy.cdgy_ma }}" class="btn btn-warning">
                     <span data-feather="edit"></span> Sửa
                 </a>
 
