@@ -7,14 +7,15 @@ require_once __DIR__.'/../../bootstrap.php';
 include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat'])) 
+if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
     $tenLoai = $_POST['lsp_ten'];
     $mota = $_POST['lsp_mota'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `loaisanpham` (lsp_ten, lsp_mota) VALUES ('" . $tenLoai . "', '". $mota ."');";
+    $sql = "INSERT INTO `loaisanpham` (lsp_ten, lsp_mota)
+            VALUES ('" . $tenLoai . "', '". $mota ."');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);

@@ -10,11 +10,14 @@ include_once(__DIR__.'/../../dbconnect.php');
 if(isset($_POST['btnCapNhat'])) 
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
+    $km_ma = $_POST['km_ma'];
     $km_ten = $_POST['km_ten'];
     $km_noidung = $_POST['km_noidung'];
+    $km_tungay = $_POST['km_tungay'];
+    $km_denngay = $_POST['km_denngay'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `khuyenmai` (km_ten, km_noidung) VALUES ('" . $km_ten . "', '". $km_noidung ."');";
+    $sql = "INSERT INTO `khuyenmai` (km_ma, km_ten, km_noidung, km_tungay, km_denngay) VALUES ('" . $km_ma . "' ,'" . $km_ten . "', '". $km_noidung ."', '" . $km_tungay . "', '" . $km_denngay . "');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);

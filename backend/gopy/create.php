@@ -7,14 +7,15 @@ require_once __DIR__.'/../../bootstrap.php';
 include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat'])) 
+if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
-    $tenLoai = $_POST['lsp_ten'];
-    $mota = $_POST['lsp_mota'];
+    $cdgy_ma = $_POST['cdgy_ma'];
+    $cdgy_ten = $_POST['cdgy_ten'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `loaisanpham` (lsp_ten, lsp_mota) VALUES ('" . $tenLoai . "', '". $mota ."');";
+    $sql = "INSERT INTO `loaisanpham` (cdgy_ma, cdgy_ten)
+            VALUES ('" . $cdgy_ma . "', '". $cdgy_ten ."');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);
@@ -26,5 +27,5 @@ if(isset($_POST['btnCapNhat']))
     header('location:index.php');
 }
 
-// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/create.html.twig`
+// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/nhasanxuat/create.html.twig`
 echo $twig->render('backend/gopy/create.html.twig');

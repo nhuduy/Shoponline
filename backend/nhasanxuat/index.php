@@ -8,7 +8,7 @@ include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Chuẩn bị câu truy vấn $sql
 $stt=1;
-$sql = "select * from `khuyenmai`";
+$sql = "select * from `nhasanxuat`";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
 $result = mysqli_query($conn, $sql);
@@ -20,14 +20,11 @@ $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     $data[] = array(
-        'km_ma' => $row['km_ma'],
-        'km_ten' => $row['km_ten'],
-        'km_noidung' => $row['km_noidung'],
-        'km_tungay' => $row['km_tungay'],
-        'km_denngay' => $row['km_denngay'],
+        'nsx_ma' => $row['nsx_ma'],
+        'nsx_ten' => $row['nsx_ten'],
     );
 }
 
-// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/khuyenmai/khuyenmai.html.twig`
-// với dữ liệu truyền vào file giao diện được đặt tên là `khuyenmai`
-echo $twig->render('backend/khuyenmai/index.html.twig', ['ds_khuyenmai' => $data] );
+// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/nhasanxuat/index.html.twig`
+// với dữ liệu truyền vào file giao diện được đặt tên là `ds_loaisanpham`
+echo $twig->render('backend/nhasanxuat/index.html.twig', ['ds_nhasanxuat' => $data] );

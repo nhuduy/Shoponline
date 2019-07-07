@@ -8,22 +8,24 @@ include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
-$gy_ma = $_GET['gy_ma'];
-$sqlSelect = "SELECT * FROM `gopy` WHERE gy_ma=$gy_ma;";
+$cdgy_ma = $_GET['cdgy_ma'];
+$sqlSelect = "SELECT * FROM `chudegopy` WHERE cdgy_ma=$cdgy_ma;";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelect = mysqli_query($conn, $sqlSelect);
-$loaisanphamRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
+$gopyRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
 
 // 4. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat'])) 
+if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
-    $tenLoai = $_POST['lsp_ten'];
-    $mota = $_POST['lsp_mota'];
+    $cdgy_ma = $_POST['cdgy_ma'];
+    $cdgy_ten = $_POST['cdgy_ten'];
 
     // Câu lệnh UPDATE
-    $sql = "UPDATE `gopy` SET lsp_ten='$tenLoai', lsp_mota='$mota' WHERE gy_ma=$gy_ma;";
+    $sql = "UPDATE `chudegopy`
+            SET cdgy_ma='$cdgy_ma', cdgy_ten='$cdgy_ten'
+            WHERE cdgy_ma=$cdgy_ma;";
 
     // Thực thi UPDATE
     mysqli_query($conn, $sql);

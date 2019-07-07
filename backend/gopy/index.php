@@ -22,16 +22,16 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     $data[] = array(
         'gopy_ma' => $row['lsp_ma'],
         'gopy_hoten' => $row['gopy_hoten'],
-        'gopy_email' => $row['gopy_email'],
-        'gopy_diachi' => $row['gopy_diachi'],
-        'gopy_dienthoai' => $row['gopy_dienthoai'],
-        'gopy_tieude' => $row['gopy_tieude'],
-        'gopy_noidung' => $row['gopy_noidung'],
-        'gopy_ngaygop' => $row['gopy_ngaygop'],
-        'gopy_chudegopy' => $row['gopy_chudegopy'],
+        // 'gopy_email' => $row['gopy_email'],
+        // 'gopy_diachi' => $row['gopy_diachi'],
+        // 'gopy_dienthoai' => $row['gopy_dienthoai'],
+        // 'gopy_tieude' => $row['gopy_tieude'],
+        // 'gopy_noidung' => $row['gopy_noidung'],
+        // 'gopy_ngaygop' => $row['gopy_ngaygop'],
+        // 'gopy_chudegopy' => $row['gopy_chudegopy'],
     );
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/loaisanpham.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `ds_loaisanpham`
-echo $twig->render('backend/loaisanpham/index.html.twig', ['ds_gopy' => $data] );
+echo $twig->render('backend/gopy/index.html.twig', ['ds_gopy' => $data] );

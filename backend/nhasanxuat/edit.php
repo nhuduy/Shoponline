@@ -8,28 +8,22 @@ include_once(__DIR__.'/../../dbconnect.php');
 
 // 2. Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
-$km_ma = $_GET['km_ma'];
-$sqlSelect = "SELECT * FROM `khuyenmai`
-              WHERE km_ma=$km_ma;";
+$nsx_ma = $_GET['nsx_ma'];
+$sqlSelect = "SELECT * FROM `nhasanxuat` WHERE nsx_ma=$nsx_ma;";
 
 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelect = mysqli_query($conn, $sqlSelect);
-$khuyenmaiRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
+$nhasanxuatRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
 
 // 4. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat']))
+if(isset($_POST['btnCapNhat'])) 
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
-    $km_ma = $_POST['km_ma'];
-    $km_ten = $_POST['km_ten'];
-    $km_noidung = $_POST['km_noidung'];
-    $km_tungay = $_POST['km_tungay'];
-    $km_denngay = $_POST['km_denngay'];
+    $nsx_ma = $_POST['nsx_ma'];
+    $nsx_ten = $_POST['nsx_ten'];
 
     // Câu lệnh UPDATE
-    $sql = "UPDATE `khuyenmai`
-            SET km_ten='$km_ten', km_noidung='$km_noidung', km_tungay='$km_tungay', km_denngay='$km_denngay'
-            WHERE km_ma=$km_ma;";
+    $sql = "UPDATE `nhasanxuat` SET nsx_ten='$nsx_ten', nsx_ma='$nsx_ma' WHERE nsx_ma=$nsx_ma;";
 
     // Thực thi UPDATE
     mysqli_query($conn, $sql);
@@ -41,6 +35,6 @@ if(isset($_POST['btnCapNhat']))
     header('location:index.php');
 }
 
-// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/khuyenmai/edit.html.twig`
-// với dữ liệu truyền vào file giao diện được đặt tên là `khuyenmai`
-echo $twig->render('backend/khuyenmai/edit.html.twig', ['khuyenmai' => $khuyenmaiRow] );
+// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/edit.html.twig`
+// với dữ liệu truyền vào file giao diện được đặt tên là `loaisanpham`
+echo $twig->render('backend/nhasanxuat/edit.html.twig', ['nhasanxuat' => $nhasanxuatRow] );

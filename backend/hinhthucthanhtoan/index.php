@@ -20,11 +20,11 @@ $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
     $data[] = array(
-        'httt_ma' => $row['httt_ma'],
+        // 'httt_ma' => $row['httt_ma'],
         'httt_ten' => $row['httt_ten'],
     );
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/loaisanpham.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `ds_loaisanpham`
-echo $twig->render('backend/loaisanpham/index.html.twig', ['ds_hinhthucthanhtoan' => $data] );
+echo $twig->render('backend/hinhthucthanhtoan/index.html.twig', ['ds_hinhthucthanhtoan' => $data] );

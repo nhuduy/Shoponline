@@ -1,0 +1,31 @@
+{# Kế thừa layout backend #}
+{% extends "backend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Thêm mới Góp ý
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Thêm mới Góp ý
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<form name="frmGopY" id="frmGopY" method="post" action="/shoponline/backend/gopy/create.php">
+    <div class="form-group">
+        <label for="cdgy_ma">Mã Góp ý</label>
+        <input type="text" class="form-control" id="cdgy_ma" name="cdgy_ma" placeholder="Mã Góp ý" readonly>
+        <small id="cdgy_maHelp" class="form-text text-muted">Mã Góp ý không được hiệu chỉnh.</small>
+    </div>
+    <div class="form-group">
+        <label for="cdgy_ten">Tên chủ đề Góp ý</label>
+        <input type="text" class="form-control" id="cdgy_ten" name="cdgy_ten" placeholder="Tên chủ đề Góp ý">
+    </div>
+    <button class="btn btn-primary" name="btnCapNhat">Cập nhật</button>
+</form>
+{% endblock %}
+{# End Nội dung trong block content #}

@@ -10,12 +10,12 @@ include_once(__DIR__.'/../../dbconnect.php');
 if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
-    $httt_ma = $_POST['httt_ma'];
-    $httt_ten = $_POST['httt_ten'];
+    $nsx_ma = $_POST['nsx_ma'];
+    $nsx_ten = $_POST['nsx_ten'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `hinhthucthanhtoan` (httt_ma, httt_ten)
-            VALUES ('" . $httt_ma . "', '". $httt_ten ."');";
+    $sql = "INSERT INTO `loaisanpham` (nsx_ten, nsx_ten)
+            VALUES ('" . $nsx_ten . "', '". $nsx_ma ."');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);
@@ -27,5 +27,5 @@ if(isset($_POST['btnCapNhat']))
     header('location:index.php');
 }
 
-// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/hinhthucthanhtoan/create.html.twig`
-echo $twig->render('backend/hinhthucthanhtoan/create.html.twig');
+// Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/nhasanxuat/create.html.twig`
+echo $twig->render('backend/nhasanxuat/create.html.twig');
