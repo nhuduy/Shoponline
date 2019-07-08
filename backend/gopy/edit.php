@@ -31,7 +31,10 @@ if(isset($_POST['btnCapNhat']))
 
     // Câu lệnh UPDATE
     $sql = "UPDATE `gopy`
-            SET gy_ma='$gy_ma', gy_hoten='$gy_hoten', gy_email='$gy_email', gy_diachi='$gy_diachi', gy_dienthoai='$gy_dienthoai', gy_tieude='$gy_tieude', gy_noidung='$gy_noidung', gy_ngaygop='$gy_ngaygop'
+            SET gy_ma='$gy_ma', gy_hoten='$gy_hoten', 
+                gy_email='$gy_email', gy_diachi='$gy_diachi', 
+                gy_dienthoai='$gy_dienthoai', gy_tieude='$gy_tieude', 
+                gy_noidung='$gy_noidung', gy_ngaygop='$gy_ngaygop'
             WHERE gy_ma=$gy_ma;";
 
     // Thực thi UPDATE
