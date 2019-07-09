@@ -15,18 +15,18 @@ if(isset($_POST['btnCapNhat']))
     $gy_email = $_POST['gy_email'];
     $gy_diachi = $_POST['gy_diachi'];
     $gy_dienthoai = $_POST['gy_dienthoai'];
-    $cdgy_ma = $_POST['cdgy_ma'];
+    // $cdgy_ma = $_POST['cdgy_ma'];
     $gy_tieude = $_POST['gy_tieude'];
     $gy_noidung = $_POST['gy_noidung'];
-    $gy_ngaygop = $_POST['gy_ngaygop'];
+    $gy_ngaygopy = $_POST['gy_ngaygopy'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `gopy` (gy_ma, gy_hoten, gy_email, 
-                                gy_diachi, gy_dienthoai, cdgy_ma, 
-                                gy_tieude, gy_noidung, gy_ngaygop)
-            VALUES ('" . $gy_ma . "', '". $gy_hoten ."', '". $gy_email ."', 
-                    '". $gy_diachi ."', '". $gy_dienthoai ."', '". $cdgy_ma ."', 
-                    '". $gy_tieude ."', '". $gy_noidung ."' ,'". $gy_ngaygop ."');";
+    $sql = "INSERT INTO `gopy` (gy_ma, gy_hoten, gy_email,
+                                gy_diachi, gy_dienthoai,
+                                gy_tieude, gy_noidung, gy_ngaygopy)
+            VALUES ('" . $gy_ma . "', '". $gy_hoten ."', '". $gy_email ."',
+                    '". $gy_diachi ."', '". $gy_dienthoai ."',
+                    '". $gy_tieude ."', '". $gy_noidung ."' ,'". gy_ngaygopy ."');";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);

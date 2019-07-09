@@ -6,9 +6,9 @@ require_once __DIR__.'/../../bootstrap.php';
 // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
 include_once(__DIR__.'/../../dbconnect.php');
 
-/* --- 
-   --- 2.Truy vấn dữ liệu Loại sản phẩm 
-   --- 
+/* ---
+   --- 2.Truy vấn dữ liệu Loại sản phẩm
+   ---
 */
 // Chuẩn bị câu truy vấn Loại sản phẩm
 $sqlLoaiSanPham = "select * from `loaisanpham`";
@@ -30,9 +30,9 @@ while($rowLoaiSanPham = mysqli_fetch_array($resultLoaiSanPham, MYSQLI_ASSOC))
 }
 /* --- End Truy vấn dữ liệu Loại sản phẩm --- */
 
-/* --- 
-   --- 3. Truy vấn dữ liệu Nhà sản xuất 
-   --- 
+/* ---
+   --- 3. Truy vấn dữ liệu Nhà sản xuất
+   ---
 */
 // Chuẩn bị câu truy vấn Nhà sản xuất
 $sqlNhaSanXuat = "select * from `nhasanxuat`";
@@ -53,9 +53,9 @@ while($rowNhaSanXuat = mysqli_fetch_array($resultNhaSanXuat, MYSQLI_ASSOC))
 }
 /* --- End Truy vấn dữ liệu Nhà sản xuất --- */
 
-/* --- 
+/* ---
    --- 4. Truy vấn dữ liệu Khuyến mãi
-   --- 
+   ---
 */
 // Chuẩn bị câu truy vấn Khuyến mãi
 $sqlKhuyenMai = "select * from `khuyenmai`";
@@ -72,7 +72,7 @@ while($rowKhuyenMai = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC))
     $km_tomtat = '';
     if(!empty($rowKhuyenMai['km_ten'])) {
         // Sử dụng hàm sprintf() để chuẩn bị mẫu câu với các giá trị truyền vào tương ứng từng vị trí placeholder
-        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s", 
+        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s",
             $rowKhuyenMai['km_ten'],
             $rowKhuyenMai['km_noidung'],
             // Sử dụng hàm date($format, $timestamp) để chuyển đổi ngày thành định dạng Việt Nam (ngày/tháng/năm)
@@ -87,9 +87,9 @@ while($rowKhuyenMai = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC))
 }
 /* --- End Truy vấn dữ liệu Khuyến mãi --- */
 
-/* --- 
+/* ---
    --- 5. Truy vấn dữ liệu Sản phẩm theo khóa chính
-   --- 
+   ---
 */
 // Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
@@ -102,7 +102,7 @@ $sanphamRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
 /* --- End Truy vấn dữ liệu Sản phẩm theo khóa chính --- */
 
 // 2. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat'])) 
+if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
     $ten = $_POST['sp_ten'];
@@ -118,7 +118,7 @@ if(isset($_POST['btnCapNhat']))
 
     // Câu lệnh INSERT
     $sql = "UPDATE `sanpham` SET sp_ten='$ten', sp_gia=$gia, sp_giacu=$giacu, sp_mota_ngan='$motangan', sp_mota_chitiet='$motachitiet', sp_ngaycapnhat='$ngaycapnhat', sp_soluong=$soluong, lsp_ma=$lsp_ma, nsx_ma=$nsx_ma, km_ma=$km_ma WHERE sp_ma=$sp_ma;";
-    
+
     // Thực thi INSERT
     mysqli_query($conn, $sql);
 
