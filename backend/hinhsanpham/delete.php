@@ -10,7 +10,8 @@ include_once(__DIR__.'/../../dbconnect.php');
 // Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
 $hsp_ma = $_GET['hsp_ma'];
-$sqlSelect = "SELECT * FROM `hinhsanpham` WHERE hsp_ma=$hsp_ma;";
+$sqlSelect = "SELECT * FROM `hinhsanpham`
+              WHERE hsp_ma=$hsp_ma;";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelect = mysqli_query($conn, $sqlSelect);
@@ -20,7 +21,8 @@ $hinhsanphamRow = mysqli_fetch_array($resultSelect, MYSQLI_ASSOC); // 1 record
 // 3. Chuẩn bị câu truy vấn $sql
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
 $hsp_ma = $_GET['hsp_ma'];
-$sql = "DELETE FROM `hinhsanpham` WHERE hsp_ma=" . $hsp_ma;
+$sql = "DELETE FROM `hinhsanpham`
+        WHERE hsp_ma=" . $hsp_ma;
 
 // 4. Thực thi câu lệnh DELETE
 $result = mysqli_query($conn, $sql);
@@ -31,7 +33,8 @@ $result = mysqli_query($conn, $sql);
 $upload_dir = "./../../assets/uploads/";
 
 $old_file = $upload_dir.$hinhsanphamRow['hsp_tentaptin'];
-if(file_exists($old_file)) {
+if(file_exists($old_file))
+{
     unlink($old_file);
 }
 

@@ -57,9 +57,12 @@ if(isset($_POST['btnCapNhat']))
         // Nếu file upload bị lỗi, tức là thuộc tính error > 0
         if ($_FILES['hsp_tentaptin']['error'] > 0)
         {
-            echo 'File Upload Bị Lỗi';die;
+            echo 'File Upload Bị Lỗi';
+            die;
         }
-        else{
+
+        else
+        {
             // Tiến hành di chuyển file từ thư mục tạm trên server vào thư mục chúng ta muốn chứa các file uploads
             // Ví dụ: move file từ C:\xampp\tmp\php6091.tmp -> C:/xampp/htdocs/learning.nentang.vn/php/twig/assets/uploads/hoahong.jpg
             $hsp_tentaptin = $_FILES['hsp_tentaptin']['name'];
@@ -68,7 +71,8 @@ if(isset($_POST['btnCapNhat']))
         }
 
         // Câu lệnh INSERT
-        $sql = "INSERT INTO `hinhsanpham` (hsp_tentaptin, sp_ma) VALUES ('$hsp_tentaptin', $sp_ma);";
+        $sql = "INSERT INTO `hinhsanpham` (hsp_tentaptin, sp_ma)
+                VALUES ('$hsp_tentaptin', $sp_ma);";
 
         // Thực thi INSERT
         mysqli_query($conn, $sql);

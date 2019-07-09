@@ -41,7 +41,8 @@ while($rowSanPham = mysqli_fetch_array($resultSanPham, MYSQLI_ASSOC))
 // Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
 $hsp_ma = $_GET['hsp_ma'];
-$sqlSelect = "SELECT * FROM `hinhsanpham` WHERE hsp_ma=$hsp_ma;";
+$sqlSelect = "SELECT * FROM `hinhsanpham`
+              WHERE hsp_ma=$hsp_ma;";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelect = mysqli_query($conn, $sqlSelect);
@@ -73,7 +74,9 @@ if(isset($_POST['btnCapNhat']))
         {
             echo 'File Upload Bị Lỗi';die;
         }
-        else{
+
+        else
+        {
             // Tiến hành di chuyển file từ thư mục tạm trên server vào thư mục chúng ta muốn chứa các file uploads
             // Ví dụ: move file từ C:\xampp\tmp\php6091.tmp -> C:/xampp/htdocs/learning.nentang.vn/php/twig/assets/uploads/hoahong.jpg
             $hsp_tentaptin = $_FILES['hsp_tentaptin']['name'];
@@ -87,7 +90,9 @@ if(isset($_POST['btnCapNhat']))
         }
 
         // Câu lệnh UPDATE
-        $sql = "UPDATE `hinhsanpham` SET hsp_tentaptin='$hsp_tentaptin', sp_ma=$sp_ma WHERE hsp_ma=$hsp_ma;";
+        $sql = "UPDATE `hinhsanpham`
+                SET hsp_tentaptin='$hsp_tentaptin', sp_ma=$sp_ma
+                WHERE hsp_ma=$hsp_ma;";
 
         // Thực thi UPDATE
         mysqli_query($conn, $sql);
