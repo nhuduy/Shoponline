@@ -54,14 +54,20 @@
     <!-- end footer -->
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS jQuery validate-->
     <script src="/shoponline/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/shoponline/assets/vendor/popperjs/popper.min.js"></script>
     <script src="/shoponline/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/shoponline/assets/vendor/feather/feather.min.js"></script>
 
+    <script src="/shoponline/assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/shoponline/assets/vendor/jquery-validation/messages_vi.min.js"></script>
+
     <!-- Custom script - Các file js do mình tự viết -->
     <script src="/shoponline/assets/backend/js/app.js"></script>
+
+    {% block customscripts %}
+    {% endblock %}
 </body>
 
 </html>

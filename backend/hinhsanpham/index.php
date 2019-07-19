@@ -31,6 +31,15 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         'sp_tomtat' => $sp_tomtat,
     );
 }
+
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
+}
+
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/hinhsanpham/index.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `ds_hinhsanpham`
 echo $twig->render('backend/hinhsanpham/index.html.twig', ['ds_hinhsanpham' => $data] );

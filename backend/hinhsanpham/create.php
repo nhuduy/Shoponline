@@ -85,6 +85,14 @@ if(isset($_POST['btnCapNhat']))
     }
 }
 
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
+}
+
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/hinhsanpham/create.html.twig`
 echo $twig->render('backend/hinhsanpham/create.html.twig', [
     'ds_sanpham' => $dataSanPham,

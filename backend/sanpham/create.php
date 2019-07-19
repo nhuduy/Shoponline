@@ -6,9 +6,9 @@ require_once __DIR__.'/../../bootstrap.php';
 // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
 include_once(__DIR__.'/../../dbconnect.php');
 
-/* --- 
-   --- 2.Truy vấn dữ liệu Loại sản phẩm 
-   --- 
+/* ---
+   --- 2.Truy vấn dữ liệu Loại sản phẩm
+   ---
 */
 // Chuẩn bị câu truy vấn Loại sản phẩm
 $sqlLoaiSanPham = "select * from `loaisanpham`";
@@ -30,9 +30,9 @@ while($rowLoaiSanPham = mysqli_fetch_array($resultLoaiSanPham, MYSQLI_ASSOC))
 }
 /* --- End Truy vấn dữ liệu Loại sản phẩm --- */
 
-/* --- 
-   --- 3. Truy vấn dữ liệu Nhà sản xuất 
-   --- 
+/* ---
+   --- 3. Truy vấn dữ liệu Nhà sản xuất
+   ---
 */
 // Chuẩn bị câu truy vấn Nhà sản xuất
 $sqlNhaSanXuat = "select * from `nhasanxuat`";
@@ -53,9 +53,9 @@ while($rowNhaSanXuat = mysqli_fetch_array($resultNhaSanXuat, MYSQLI_ASSOC))
 }
 /* --- End Truy vấn dữ liệu Nhà sản xuất --- */
 
-/* --- 
+/* ---
    --- 4. Truy vấn dữ liệu Khuyến mãi
-   --- 
+   ---
 */
 // Chuẩn bị câu truy vấn Khuyến mãi
 $sqlKhuyenMai = "select * from `khuyenmai`";
@@ -72,7 +72,7 @@ while($rowKhuyenMai = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC))
     $km_tomtat = '';
     if(!empty($rowKhuyenMai['km_ten'])) {
         // Sử dụng hàm sprintf() để chuẩn bị mẫu câu với các giá trị truyền vào tương ứng từng vị trí placeholder
-        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s", 
+        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s",
             $rowKhuyenMai['km_ten'],
             $rowKhuyenMai['km_noidung'],
             // Sử dụng hàm date($format, $timestamp) để chuyển đổi ngày thành định dạng Việt Nam (ngày/tháng/năm)
@@ -88,7 +88,7 @@ while($rowKhuyenMai = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC))
 /* --- End Truy vấn dữ liệu Khuyến mãi --- */
 
 // 2. Nếu người dùng có bấm nút Đăng ký thì thực thi câu lệnh UPDATE
-if(isset($_POST['btnCapNhat'])) 
+if(isset($_POST['btnCapNhat']))
 {
     // Lấy dữ liệu người dùng hiệu chỉnh gởi từ REQUEST POST
     $ten = $_POST['sp_ten'];
@@ -103,9 +103,13 @@ if(isset($_POST['btnCapNhat']))
     $km_ma = $_POST['km_ma'];
 
     // Câu lệnh INSERT
-    $sql = "INSERT INTO `sanpham` (sp_ten, sp_gia, sp_giacu, sp_mota_ngan, sp_mota_chitiet, sp_ngaycapnhat, sp_soluong, lsp_ma, nsx_ma, km_ma) 
-            VALUES ('$ten', $gia, $giacu, '$motangan', '$motachitiet', '$ngaycapnhat', $soluong, $lsp_ma, $nsx_ma, $km_ma);";
-    
+    $sql = "INSERT INTO `sanpham` (sp_ten, sp_gia, sp_giacu,
+                                    sp_mota_ngan, sp_mota_chitiet,
+                                    sp_ngaycapnhat, sp_soluong,
+                                    lsp_ma, nsx_ma, km_ma)
+            VALUES ('$ten', $gia, $giacu, '$motangan', '$motachitiet',
+                     '$ngaycapnhat', $soluong, $lsp_ma, $nsx_ma, $km_ma);";
+
     // Thực thi INSERT
     mysqli_query($conn, $sql);
 
@@ -114,6 +118,14 @@ if(isset($_POST['btnCapNhat']))
 
     // Sau khi cập nhật dữ liệu, tự động điều hướng về trang Danh sách
     header('location:index.php');
+}
+
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/sanpham/create.html.twig`

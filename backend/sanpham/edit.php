@@ -94,7 +94,8 @@ while($rowKhuyenMai = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC))
 // Chuẩn bị câu truy vấn $sqlSelect, lấy dữ liệu ban đầu của record cần update
 // Lấy giá trị khóa chính được truyền theo dạng QueryString Parameter key1=value1&key2=value2...
 $sp_ma = $_GET['sp_ma'];
-$sqlSelect = "SELECT * FROM `sanpham` WHERE sp_ma=$sp_ma;";
+$sqlSelect = "SELECT * FROM `sanpham`
+                WHERE sp_ma=$sp_ma;";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update
 $resultSelect = mysqli_query($conn, $sqlSelect);
@@ -117,7 +118,12 @@ if(isset($_POST['btnCapNhat']))
     $km_ma = empty($_POST['km_ma']) ? 'NULL' : $_POST['km_ma'];
 
     // Câu lệnh INSERT
-    $sql = "UPDATE `sanpham` SET sp_ten='$ten', sp_gia=$gia, sp_giacu=$giacu, sp_mota_ngan='$motangan', sp_mota_chitiet='$motachitiet', sp_ngaycapnhat='$ngaycapnhat', sp_soluong=$soluong, lsp_ma=$lsp_ma, nsx_ma=$nsx_ma, km_ma=$km_ma WHERE sp_ma=$sp_ma;";
+    $sql = "UPDATE `sanpham`
+            SET sp_ten='$ten', sp_gia=$gia, sp_giacu=$giacu,
+                sp_mota_ngan='$motangan', sp_mota_chitiet='$motachitiet',
+                sp_ngaycapnhat='$ngaycapnhat', sp_soluong=$soluong,
+                lsp_ma=$lsp_ma, nsx_ma=$nsx_ma, km_ma=$km_ma
+            WHERE sp_ma=$sp_ma;";
 
     // Thực thi INSERT
     mysqli_query($conn, $sql);
@@ -127,6 +133,14 @@ if(isset($_POST['btnCapNhat']))
 
     // Sau khi cập nhật dữ liệu, tự động điều hướng về trang Danh sách
     header('location:index.php');
+}
+
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/sanpham/edit.html.twig`

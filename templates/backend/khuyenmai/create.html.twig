@@ -41,3 +41,87 @@ Thêm mới Khuyến mãi
 </form>
 {% endblock %}
 {# End Nội dung trong block content #}
+
+{% block customscripts %}
+<script>
+  $(document).ready(function() {
+    $("#frmKhuyenMai").validate({
+      rules: {
+        km_ten: {
+          required: true,
+          minlength: 3,
+          maxlength: 50
+        },
+        km_noidung: {
+            required: true,
+            minlength: 3,
+            maxlength: 50
+          },
+        km_tungay: {
+        required: true,
+        minlength: 10,
+        maxlength: 10
+        },
+        km_denngay: {
+          required: true,
+          minlength: 10,
+          maxlength: 10
+        }
+      },
+      messages: {
+        km_ten: {
+          required: "Vui lòng nhập tên Khuyến mãi",
+          minlength: "Tên  phải có ít nhất 3 ký tự",
+          maxlength: "Tên  không được vượt quá 50 ký tự"
+        },
+        km_noidung: {
+            required: "Vui lòng nhập Nội dung khuyến mãi",
+            minlength: "Nội dung khuyến mãi phải có ít nhất 3 kí tự",
+            maxlength: "Nội dung khuyến mãi không được vượt quá 50 ký tự"
+          },
+        km_tungay: {
+            required: "Vui lòng nhập Ngày bắt đầu khuyến mãi",
+            minlength: "Ngày bắt đầu khuyến mãi phải chỉ 10 kí tự dd/mm/yyyy",
+            maxlength: "Ngày bắt đầu khuyến mãi chỉ 10 kí tự dd/mm/yyyy"
+          },
+        km_denngay: {
+          required: "Vui lòng nhập Ngày kết thúc khuyến mãi",
+          minlength: "Ngày kết thúc khuyến mãi phải chỉ 10 kí tự dd/mm/yyyy",
+          maxlength: "Ngày kết thúc khuyến mãi chỉ 10 kí tự dd/mm/yyyy"
+        },
+      },
+      errorElement: "em",
+      errorPlacement: function(error, element) {
+        // Thêm class `invalid-feedback` cho field đang có lỗi
+        error.addClass("invalid-feedback");
+
+        if (element.prop("type") === "checkbox") {
+          error.insertAfter(element.parent("label"));
+        } else {
+          error.insertAfter(element);
+        }
+
+        // Thêm icon "Kiểm tra không Hợp lệ"
+        if (!element.next("span")[0]) {
+          $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>")
+            .insertAfter(element);
+        }
+      },
+      success: function(label, element) {
+        // Thêm icon "Kiểm tra Hợp lệ"
+        if (!$(element).next("span")[0]) {
+          $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>")
+            .insertAfter($(element));
+        }
+      },
+      highlight: function(element, errorClass, validClass) {
+        $(element).addClass("is-invalid").removeClass("is-valid");
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $(element).addClass("is-valid").removeClass("is-invalid");
+      }
+    });
+
+  });
+</script>
+{% endblock %}

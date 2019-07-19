@@ -31,9 +31,9 @@ if(isset($_POST['btnCapNhat']))
 
     // Câu lệnh UPDATE
     $sql = "UPDATE `gopy`
-            SET gy_ma='$gy_ma', gy_hoten='$gy_hoten', 
-                gy_email='$gy_email', gy_diachi='$gy_diachi', 
-                gy_dienthoai='$gy_dienthoai', gy_tieude='$gy_tieude', 
+            SET gy_ma='$gy_ma', gy_hoten='$gy_hoten',
+                gy_email='$gy_email', gy_diachi='$gy_diachi',
+                gy_dienthoai='$gy_dienthoai', gy_tieude='$gy_tieude',
                 gy_noidung='$gy_noidung', gy_ngaygop='$gy_ngaygop'
             WHERE gy_ma=$gy_ma;";
 
@@ -45,6 +45,14 @@ if(isset($_POST['btnCapNhat']))
 
     // Sau khi cập nhật dữ liệu, tự động điều hướng về trang Danh sách
     header('location:index.php');
+}
+
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/edit.html.twig`

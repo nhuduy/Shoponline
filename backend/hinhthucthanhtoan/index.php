@@ -6,6 +6,8 @@ require_once __DIR__.'/../../bootstrap.php';
 // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
 include_once(__DIR__.'/../../dbconnect.php');
 
+
+
 // 2. Chuẩn bị câu truy vấn $sql
 $stt=1;
 $sql = "select * from `hinhthucthanhtoan`";
@@ -23,6 +25,14 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         // 'httt_ma' => $row['httt_ma'],
         'httt_ten' => $row['httt_ten'],
     );
+}
+
+// Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
+// Điều hướng người dùng về trang Đăng nhập
+// RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
+if(!isset($_SESSION['username']))
+{
+    header('location:./../pages/login.php');
 }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/loaisanpham.html.twig`
