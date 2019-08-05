@@ -11,7 +11,7 @@ include_once(__DIR__.'/../../dbconnect.php');
    ---
 */
 // Chuẩn bị câu truy vấn Loại sản phẩm
-$sqlLoaiSanPham = "select * from `loaisanpham`";
+$sqlLoaiSanPham = "SELECT * FROM `loaisanpham`";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultLoaiSanPham = mysqli_query($conn, $sqlLoaiSanPham);
@@ -35,7 +35,7 @@ while($rowLoaiSanPham = mysqli_fetch_array($resultLoaiSanPham, MYSQLI_ASSOC))
    ---
 */
 // Chuẩn bị câu truy vấn Nhà sản xuất
-$sqlNhaSanXuat = "select * from `nhasanxuat`";
+$sqlNhaSanXuat = "SELECT * FROM `nhasanxuat`";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultNhaSanXuat = mysqli_query($conn, $sqlNhaSanXuat);
@@ -58,7 +58,7 @@ while($rowNhaSanXuat = mysqli_fetch_array($resultNhaSanXuat, MYSQLI_ASSOC))
    ---
 */
 // Chuẩn bị câu truy vấn Khuyến mãi
-$sqlKhuyenMai = "select * from `khuyenmai`";
+$sqlKhuyenMai = "SELECT * FROM `khuyenmai`";
 
 // Thực thi câu truy vấn SQL để lấy về dữ liệu
 $resultKhuyenMai = mysqli_query($conn, $sqlKhuyenMai);

@@ -29,7 +29,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     $km_tomtat = '';
     if(!empty($row['km_ten'])) {
         // Sử dụng hàm sprintf() để chuẩn bị mẫu câu với các giá trị truyền vào tương ứng từng vị trí placeholder
-        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s",
+        $km_tomtat = sprintf("Khuyến mãi %s, nội dung: %s, thời gian: %s-%s", 
             $row['km_ten'],
             $row['km_noidung'],
             // Sử dụng hàm date($format, $timestamp) để chuyển đổi ngày thành định dạng Việt Nam (ngày/tháng/năm)
@@ -68,3 +68,5 @@ if(!isset($_SESSION['username']))
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/sanpham/index.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `ds_sanpham`
 echo $twig->render('backend/sanpham/index.html.twig', ['ds_sanpham' => $data] );
+
+?>

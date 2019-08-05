@@ -19,7 +19,8 @@ if (isset($_POST['btnCapNhat']))
     // required
     if (empty($tenLoai))
     {
-        $errors['lsp_ten'][] = [
+        $errors['lsp_ten'][] = 
+        [
             'rule' => 'required',
             'rule_value' => true,
             'value' => $tenLoai,

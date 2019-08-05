@@ -88,7 +88,7 @@ if(isset($_POST['btnDangKy']))
         $body = <<<EOT
         <table>
             <tr>
-                <td><h1 style="color: red; font-size: 16px; text-align: center;">TRANG BÁN HÀNG SALOMON</h1>
+                <td><h1 style="color: red; font-size: 16px; text-align: center;">Shop online</h1>
                     <img src="https://res.cloudinary.com/drdoqfhly/image/upload/v1530887094/gg-1_synrgy.jpg" width="300px" height="150px" />
                 </td>
             </tr>

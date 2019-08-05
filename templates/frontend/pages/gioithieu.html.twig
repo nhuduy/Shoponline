@@ -1,0 +1,143 @@
+{# Kế thừa layout frontend #}
+{% extends "frontend/layouts/layout.html.twig" %}
+
+{# Nội dung trong block title #}
+{% block title %}
+Liên hệ
+{% endblock %}
+{# End Nội dung trong block title #}
+
+{# Nội dung trong block headline #}
+{% block headline %}
+Liên hệ
+{% endblock %}
+{# End Nội dung trong block headline #}
+
+{# Nội dung trong block content #}
+{% block content %}
+<div class="container mt-2">
+    <h1 class="text-center">Andy Shop - Mọi lúc mọi nơi</h1><hr/>
+    <h4 align="center"><b color="white">Giới thiệu</b></h4>
+    <div class="container" style="background-image:url(/shoponline/assets/uploads/coffee2.jpg)">
+        <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/shoponline/assets/uploads/coffee7.jpg" height="350px" width="520px">
+                </div>
+                <div class="col-md-6" style="color:white"> 
+                    <br>
+                    <p>Được thành lập vào năm 2012, Andy Shop là nền tảng thương mại điện tử hàng đầu tại khu vực miền nam. 
+                    Đây là một nền tảng phù hợp với khu vực, cung cấp cho khách hàng trải nghiệm mua sắm trực tuyến dễ dàng, 
+                    an toàn và nhanh chóng thông qua hỗ trợ thanh toán và hậu cần mạnh mẽ.</p>
+
+                    <p>Chúng tôi đang đẩy nhanh tiến độ ở các thành phố Trung Uơng như:
+                     Hà Nội, Hải Phòng, Đà Nẵng, Hồ Chí Minh, Cần Thơ thông qua thương mại và công nghệ. 
+                     Với mạng lưới hậu cần và thanh toán lớn nhất trong khu vực, 
+                     Andy Shop là một phần trong cuộc sống hàng ngày của người sành Cafe, Trà, và các thức uống giải khát.</p>
+                     <p>Nhiệm vụ của chúng tôi là cải thiện cuộc sống của người tiêu dùng với công nghệ mới.</p>
+                </div><br>
+            </div>
+            <div class="row">
+                <div class="col-md-6"  style="color:white; padding-top: 10%">
+                    <h4><b>Mục đích của chúng tôi</b></h4>
+                    <p>Khi mua sắm trên thiết bị di động trở thành chuẩn mực mới, 
+                    Andy Shop đặt mục tiêu liên tục nâng cao nền tảng của mình để mang lại trải nghiệm mua sắm 
+                    liền mạch và thú vị cho tất cả người dùng và là nền tảng thương mại điện tử của khu vực...</p>
+                </div><hr/>
+                <div class="col-md-6">
+                    <img src="/shoponline/assets/uploads/coffee2.jpg" height="350px" width="520px">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6"  style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6">
+                            <img src="/shoponline/assets/uploads/Value/v1.png" height="200px" width="200px">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Chúng tôi phục vụ</h4>
+                            <p>Khách hàng của chúng tôi là trọng tài duy nhất về giá trị của các sản phẩm và dịch vụ của chúng tôi. 
+                            <br> Chúng tôi cố gắng đáp ứng nhu cầu chưa được đáp ứng và phục vụ những người không được phục vụ.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6">
+                            <img src="/shoponline/assets/uploads/Value/v4.png" height="200px" width="200px">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Chúng tôi thích nghi</h4>
+                            <p>Khách hàng của chúng tôi là trọng tài duy nhất về giá trị của các sản phẩm và dịch vụ của chúng tôi.<br>
+                            <br> Chúng tôi cố gắng đáp ứng nhu cầu chưa được đáp ứng và phục vụ những người không được phục vụ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <div class="row">
+                <div class="col-md-6"  style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6">
+                            <img src="/shoponline/assets/uploads/Value/v2.png" height="200px" width="200px">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Chúng ta chạy</h4>
+                            <p>Chúng tôi đang trong một cuộc đua liên tục để thành công trong khi vật lộn với lực lượng thay đổi nhanh chóng. 
+                            <br><br> Chúng tôi di chuyển nhanh hơn, tốt hơn và khẩn cấp hơn mỗi ngày.</p>
+                        </div>
+                    </div>
+                </div><br><br>
+
+                <div class="col-md-6" style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6">
+                            <img src="/shoponline/assets/uploads/Value/v5.png" height="200px" width="200px">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Chúng tôi cam kết</h4>
+                            <p>Công việc của chúng tôi là cam kết của chúng tôi.<br><br> 
+                            Chúng tôi cam kết với các giá trị, tổ chức, khách hàng và đối tác của chúng tôi.<br><br>
+                            Chúng tôi cam kết với nhau. Trên hết, chúng tôi cam kết làm tốt nhất có thể và trở thành tốt nhất chúng tôi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="/shoponline/assets/uploads/coffee6.jpg" height="1000px" width="1078px" ><hr><hr><hr>
+            <img src="/shoponline/assets/uploads/coffee1.jpg" height="1200px" width="1078px" ><hr><hr><hr>
+            
+            <div class="row">
+                <div class="col-md-6"  style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6"  style="color:white; padding-top: 10%">
+                    <div class="row"> 
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    
+
+    
+    <div class="row mt-2">
+        
+    </div>
+</div>
+{% endblock %}
+{# End Nội dung trong block content #}
+
+{% block customscripts %}
+{% endblock %}

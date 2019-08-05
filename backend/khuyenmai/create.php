@@ -25,7 +25,7 @@ if(isset($_POST['btnCapNhat']))
         $errors['km_ten'][] = [
             'rule' => 'required',
             'rule_value' => true,
-            'value' => km_ten,
+            'value' => $km_ten,
             'msg' => 'Vui lòng nhập tên Khuyến mãi'
         ];
     }
@@ -145,18 +145,18 @@ if(isset($_POST['btnCapNhat']))
     }
 
     // dd($errors);
-    if (!empty($errors))
-    {
-        // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/create.html.twig`
-        // kèm theo dữ liệu thông báo lỗi
-        echo $twig->render('backend/khuyenmai/create.html.twig', [
-            'errors' => $errors,
-            '$km_ten_oldvalue' => $km_ten,
-            'km_noidung_oldvalue' => $km_noidung,
-            'km_tungay_oldvalue' => $km_tungay,
-            'km_denngay_oldvalue' => $km_denngay,
-        ]);
-    }
+    // if (!empty($errors))
+    // {
+    //     // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/loaisanpham/create.html.twig`
+    //     // kèm theo dữ liệu thông báo lỗi
+    //     echo $twig->render('backend/khuyenmai/create.html.twig', [
+    //         'errors' => $errors,
+    //         '$km_ten_oldvalue' => $km_ten,
+    //         'km_noidung_oldvalue' => $km_noidung,
+    //         'km_tungay_oldvalue' => $km_tungay,
+    //         'km_denngay_oldvalue' => $km_denngay,
+    //     ]);
+    // }
 
     else
     {

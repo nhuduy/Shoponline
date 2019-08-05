@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi" class="h-100">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- jQuery -->
+  <script src="/shoponline/assets/vendor/jquery/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/shoponline/assets/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="/shoponline/assets/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+
+  <!-- Custom css - Các file css do chúng ta tự viết -->
+  <link rel="stylesheet" href="/shoponline/assets/frontend/css/style.css" type="text/css" />
+
+  <!-- Block title - Đục lỗ trên giao diện bố cục chung, đặt tên là `title` -->
+  <title>Shop online - Mọi lúc mọi nơi |
+    {% block title %}
+    {% endblock %}
+  </title>
+  <!-- End block title -->
+
+  <!-- Block custom-styles - Đục lỗ trên giao diện bố cục chung, đặt tên là `custom-styles` -->
+  {% block customstyles %}
+  {% endblock %}
+  <!-- End block custom-styles -->
+</head>
+
+<body>
+  <!-- header -->
+  {{ include('frontend/layouts/includes/header.html.twig') }}
+  <!-- end header -->
+  <main role="main">
+    <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+    {% block content %}
+    {% endblock %}
+    <!-- End block content -->
+  </main>
+
+  <!-- footer -->
+  {{ include('frontend/layouts/includes/footer.html.twig') }}
+  <!-- end footer -->
+
+  <!-- Optional JavaScript -->
+  <!-- Popper.js, then Bootstrap JS -->
+  <script src="/shoponline/assets/vendor/popperjs/popper.min.js"></script>
+  <script src="/shoponline/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/shoponline/assets/vendor/feather/feather.min.js"></script>
+
+  <!-- Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
+  <!-- Custom script - Các file js do mình tự viết -->
+  <script src="/shoponline/assets/frontend/js/app.js"></script>
+
+  <!-- Block custom-scripts - Đục lỗ trên giao diện bố cục chung, đặt tên là `custom-scripts` -->
+  {% block customscripts %}
+  {% endblock %}
+  <!-- End block custom-scripts -->
+</body>
+
+</html>

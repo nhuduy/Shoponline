@@ -1,0 +1,39 @@
+<div style="filter: brightness(99%) contrast(99%);">
+    <div class="header-blue" style="background-color: rgb(91,92,94);height: 80px;">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+            <div class="container">
+                {# <a class="navbar-brand" href="/shoponline/frontend/pages/index.php">Andy Shop</a> #}
+                <a href="/shoponline/frontend/pages/index.php">
+                    <img src="/shoponline/assets/uploads/logo1.png" height="90px" width="220px">
+                </a>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="/shoponline/backend/pages/dashboard.php">Quản trị</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="/shoponline/frontend/sanpham/danhsach.php">Sản phẩm</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="/shoponline/frontend/pages/gioithieu.php">Giới thiệu</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="/shoponline/frontend/pages/lienhe.php">Liên hệ</a></li>
+                    </ul>
+
+                    <form class="form-inline mr-auto" method="get" action="/shoponline/frontend/pages/timkiem.php" target="_self">
+                        <div class="form-group"><label for="search-field">
+                        <i class="fa fa-search"></i></label>
+                        <input class="form-control search-field" type="search" id="search-field" placeholder="Tìm kiếm"></div>
+                    </form>
+
+                    <span class="navbar-text">
+                        <div class="login"> 
+                            {% if session['username'] %}
+                            <!-- Nếu đã đăng nhập thì hiển thị nút Đăng xuất -->
+                            <a class="nav-link" href="/shoponline/frontend/pages/logout.php">Đăng xuất</a>
+                            {% else %}
+                            <!-- Nếu chưa đăng nhập thì hiển thị nút Đăng nhập -->
+                            <a class="nav-link" href="/shoponline/frontend/pages/login.php">Đăng nhập</a>
+                            {% endif %}
+                        </div>
+                    </span>
+
+                    <a class="btn btn-light action-button" role="button" href="/shoponline/frontend/thanhtoan/giohang.php">Giỏ hàng</a></div>
+            </div>
+        </nav>
+    </div>
+    </div>

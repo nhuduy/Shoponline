@@ -19,7 +19,8 @@ $result = mysqli_query($conn, $sql);
 $data = [];
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-    $data[] = array(
+    $data[] = array
+    (
         'km_ma' => $row['km_ma'],
         'km_ten' => $row['km_ten'],
         'km_noidung' => $row['km_noidung'],
@@ -31,10 +32,10 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 // Nếu trong SESSION không có giá trị của key 'username', chúng ta sẽ xem như người dùng chưa đăng nhập
 // Điều hướng người dùng về trang Đăng nhập
 // RECOMMENDED: Nên ràng buộc kỹ hơn về phân quyền,
-if(!isset($_SESSION['username']))
-{
-    header('location:./../pages/login.php');
-}
+// if(!isset($_SESSION['username']))
+// {
+//     header('location:./../pages/login.php');
+// }
 
 // Yêu cầu `Twig` vẽ giao diện được viết trong file `backend/khuyenmai/khuyenmai.html.twig`
 // với dữ liệu truyền vào file giao diện được đặt tên là `khuyenmai`
