@@ -100,7 +100,7 @@ Bảng tin
     $('#refreshBaoCaoSanPham').click(function (event) {
         event.preventDefault();
 
-        $.ajax('/shoponline/backend/ajax/baocao-tongsomathang-ajax', {
+        $.ajax('/shoponline/backend/ajax/baocao-tongsomathang-ajax.php', {
             success: function (data) {
                 var dataObj = JSON.parse(data);
                 var htmlString = `<h1>${dataObj.SoLuong}</h1>`;
@@ -115,7 +115,7 @@ Bảng tin
 
     // Refresh dữ liệu báo cáo Số lượng Khách hàng
     function getDataBaoCaoKhachHang() {
-        $.ajax('/shoponline/backend/ajax/baocao-tongsokhachhang-ajax', {
+        $.ajax('/shoponline/backend/ajax/baocao-tongsokhachhang-ajax.php', {
             success: function (data) {
                 var dataObj = JSON.parse(data);
                 var htmlString = `<h1>${dataObj.SoLuong}</h1>`;
@@ -135,7 +135,7 @@ Bảng tin
 
     // Refresh dữ liệu báo cáo Số lượng Đơn hàng
     function getDataBaoCaoDonHang() {
-        $.ajax('/shoponline/backend/ajax/baocao-tongsodonhang-ajax', {
+        $.ajax('/shoponline/backend/ajax/baocao-tongsodonhang-ajax.php', {
             success: function (data) {
                 var dataObj = JSON.parse(data);
                 var htmlString = `<h1>${dataObj.SoLuong}</h1>`;
@@ -155,7 +155,7 @@ Bảng tin
 
     // Refresh dữ liệu báo cáo Số lượng Góp Ý
     function getDataBaoCaoGopY() {
-        $.ajax('/shoponline/backend/ajax/baocao-tongsogopy-ajax', {
+        $.ajax('/shoponline/backend/ajax/baocao-tongsogopy-ajax.php', {
             success: function (data) {
                 var dataObj = JSON.parse(data);
                 var htmlString = `<h1>${dataObj.SoLuong}</h1>`;
@@ -180,7 +180,7 @@ Bảng tin
 
     function renderChartThongKeLoaiSanPham() {
         $.ajax({
-            url: '/shoponline/backend/ajax/baocao-thongkeloaisanpham-ajax',
+            url: '/shoponline/backend/ajax/baocao-thongkeloaisanpham-ajax.php',
             type: "GET",
             success: function (response) {
                 var data = JSON.parse(response);
@@ -233,7 +233,7 @@ Bảng tin
 
     function renderChartThongKeTopSanPhamBanChayNhat() {
         $.ajax({
-            url: '/shoponline/backend/ajax/baocao-thongketopsanphambanchaynhat-ajax',
+            url: '/shoponline/backend/ajax/baocao-thongketopsanphambanchaynhat-ajax.php',
             type: "GET",
             success: function (response) {
                 var data = JSON.parse(response);
@@ -286,7 +286,7 @@ Bảng tin
 
     function renderChartThongKeDoanhThu() {
         $.ajax({
-            url: '/shoponline/backend/ajax/baocao-thongkedoanhthu-ajax',
+            url: '/shoponline/backend/ajax/baocao-thongkedoanhthu-ajax.php',
             type: "GET",
             success: function (response) {
                 var data = JSON.parse(response);
